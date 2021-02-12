@@ -19,7 +19,7 @@ class MoveBaseSeq():
     def __init__(self):
         rospy.init_node('move_base_sequence')
         self.g_add = 0
-        self.goallist = [[1.4, 5.0], [-0.4, 6.6], [0.4, 3.6], [-2.2, 4.4], [-3.5, 3.6], [-4.6, 4.3], [-4.2, 0.7], [-3.1, -2.1], [-5.3, 0.78], [0.9, 3.5], [-4.6, 3.4], [-4.3, 6.0]]
+        self.goallist = [[-4.3, 4.0], [-4.0, 4.0], [-4.2, 4.1], [-4.4, 4.6], [-4.2, -4.4], [-4.5, -4.6], [-4.6, 4.3], [-4.2, 0.7], [-3.1, -2.1], [-5.3, 0.78], [0.9, 3.5], [-4.6, 3.4], [-4.3, 6.0]]
 
 
 
@@ -70,8 +70,9 @@ class MoveBaseSeq():
 
             print("\n#####################\n")
             rospy.sleep(1)
-            self.g_add += 1
-            self.movebase_SkipPreviousGoal()
+            rospy.signal_shutdown("reason")
+            #self.g_add += 1
+            #self.movebase_SkipPreviousGoal()
 
         if status == 3:         #!
             print("\n#####################\n")
